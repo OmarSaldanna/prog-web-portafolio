@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Proyecto Intermedio</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style type="text/css">
+		li { margin-top: 10px; transition: margin .6s; cursor: pointer; }
+		li:hover { text-decoration: underline; margin-left: 1rem;}
+	</style>
+</head>
+<body>
+	<h1>Proyecto Intermedio</h1>
+	<h3>Lista de contenidos</h3>
+	<ol>
+		<li onclick="redirigir('practica2/index.html')">Práctica 2: HTML</li>
+		<li onclick="redirigir('practica3/index.html')">Práctica 3: Tablas y CSS</li>
+		<li onclick="redirigir('practica4/index.html')">Práctica 4: JavaScript 1</li>
+		<li onclick="redirigir('practica5/index.html')">Práctica 5: JavaScript 2</li>
+		<strong><li onclick="redirigir('about/index.html')">About</li></strong>
+		<strong><li onclick="redirigir('parte2/index.html')">Segunda Parte</li></strong>
+	</ol>
+	<script type="text/javascript">
+		// fucnión para redirigir
+		function redirigir(url) {
+			window.location.href = url;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Segunda Parte</title>
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<!-- botón flotante para regresar al inicio -->
+    <a href="../index.html">
+        <div class="floating">
+            <strong>X</strong>
+        </div>
+    </a>
+
+    <h1>Lista de Tareas</h1>
+
+    <div class="section">
+    	<label><strong>Agrega una nueva tarea:</strong></label>
+    	<input type="text" onchange="tachar(1)" placeholder="contenido" id="contenido">
+    	<button id="add" onclick="agregar()"><strong>Agregar</strong></button>
+    	<button id="clear" onclick="limpiar()"><strong>Borrar todas</strong></button>
+    </div>
+
+    <h2>Tareas Activas:</h2>
+
+    <table id="tabla">
+    	<tr>
+    		<th>Contenido</th>
+    		<th>Estado</th>
+    	</tr>
+    </table>
+
+   	<script type="text/javascript">
+   		// seleccionar la tabla
+   		var tabla = document.getElementById("tabla");
+   		// el contador de las clases 
+   		var counter = 0;
+
+   		//
+   		function agregar () {
+   			// obtener el valor del input
+   			let content = document.getElementById("contenido").value;
+   			// comprobar valores vacios
+   			if (content == "") {
+   				alert("Error: No se aceptan valores vacíos");
+   				return 0;
+   			}
+   			// crear la tr
+   			let row = `<tr>
+	    		<td id="t${counter}">${content}</td>
+	    		<td><input type="checkbox" onchange="tachar(${counter})" id="c${counter}"></td>
+    		</tr>`;
+    		// agregar eso a la tabla
+    		tabla.innerHTML += row;
+    		// impiar el input
+    		document.getElementById("contenido").value = '';
+    		// y aumentar el contador
+    		counter += 1;
+   		}
+
+   		// 
+   		function tachar (i) {
+   			// seleccionamos el texto a tachar o destachar
+   			let text = document.getElementById("t"+i);
+   			// seleccionamos el input
+   			let check = document.getElementById("c"+i);
+   			// comprobamos si fue checkeada
+   			if (check.checked) {
+   				// si si, tachamos el texto
+   				text.style.textDecoration= "line-through";
+   			} else {
+   				// si no, lo destachamos
+   				text.style.textDecoration= "none";
+   			}
+
+   		}
+
+   		// 
+   		function limpiar () {
+   			tabla.innerHTML = `<tr>
+	    		<th>Contenido</th>
+	    		<th>Estado</th>
+	    	</tr>`;
+   		}
+
+   	</script>
+</body>
+</html>

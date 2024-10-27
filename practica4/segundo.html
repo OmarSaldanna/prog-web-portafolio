@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segundo</title>
+</head>
+<body>
+
+    <!-- botón flotante para regresar al inicio -->
+    <a href="./index.html">
+        <div class="floating">
+            <strong>X</strong>
+        </div>
+    </a>
+
+    <!-- titulo -->
+    <h1>Factorial Calculator</h1>
+    <!-- formulario -->
+    <form id="formularioFactorial">
+        <!-- una label -->
+        <label for="inputNumero">Ingrese un número para calcular su factorial:</label>
+        <!-- la input para el numero -->        
+        <input type="number" id="inputNumero">
+        <!-- y el botón para mandar el formulario, ya esta prevenido el refresh -->
+        <button type="submit">Calcular Factorial</button>
+    </form>
+    <!-- aqui se va a mostrar el resultado -->
+    <p id="resultadoFactorial"></p>
+    <script>
+        // funcion para calcular el factorial de forma recursiva
+        function calcularFactorial(n) {
+            if (n < 0) {
+                return "Error: no hay factorial de negativos";
+            } else if (n === 0) {
+                return 1;
+            } else {
+                return n * calcularFactorial(n - 1);
+            }
+        }
+
+        // elementos de formulario y el lugar donde poner el resultado
+        const formulario = document.getElementById("formularioFactorial");
+        const resultado = document.getElementById("resultadoFactorial");
+
+        // lo mismo del primero***
+        formulario.addEventListener("submit", function(event) {
+            // evitar el refresh
+            event.preventDefault();
+            // obtener el número como un int
+            const numero = parseInt(document.getElementById("inputNumero").value);
+            // usar la función
+            const factorial = calcularFactorial(numero);
+            // y mostrar resultados
+            resultado.textContent = `El factorial de ${numero} es: ${factorial}`;
+        });
+    </script>
+</body>
+</html>

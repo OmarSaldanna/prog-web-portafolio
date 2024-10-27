@@ -1,0 +1,52 @@
+.section {
+	width: 96%;
+	padding: 2rem;
+	display: flex;
+	background-color: lightgrey;
+	justify-content: space-around;
+}
+
+.section * {
+	padding: 5px;
+}
+
+.section input {
+	background-color: transparent;
+	outline: none;
+	border-radius: 5px;
+	border: solid 1px black;
+	transition: background .3s;
+}
+
+.section input:focus { background-color: white; }
+button {
+	cursor: pointer;
+	transition: background .6s;
+	border: none;
+}
+button#add:hover { background-color: #4db6ac; }
+button#clear:hover, button#delete:hover { background-color:#ff5722; }
+
+h2 { margin-top: 5rem; text-align:center; }
+
+/* cosas de la tabla */
+table {
+    width: 50%;
+	/* para que los bordes se junten */
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+/* para las filas pares */
+tr:nth-child(even) {
+    background-color: #e6e6e6;
+}

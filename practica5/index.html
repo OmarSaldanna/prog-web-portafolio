@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Práctica JS 2</title>
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+	<!-- botón flotante para regresar al inicio -->
+	<a href="../index.html">
+		<div class="floating">
+			<strong>X</strong>
+		</div>
+	</a>
+	
+	
+	<h1>Práctica JS 2</h1>
+
+	<form id="miFormulario">
+		<label>Nombre:</label>
+	    <input type="text" id="nombre">
+	    <br><br>
+	    
+	    <label>Email:</label>
+	    <input type="email" id="email">
+	    <br><br>
+	    
+	    <label>Tags:</label>
+	    <input type="checkbox" value="Tag 1" class="tags">Tag 1
+	    <input type="checkbox" value="Tag 2" class="tags">Tag 2
+	    <input type="checkbox" value="Tag 3" class="tags">Tag 3
+	    <br><br>
+	    
+	    <label>Radio:</label>
+	    <!-- por default checkear el primero -->
+	    <!-- estos si llevan name para que no se pueda seleccionar todos -->
+	    <input type="radio" name="radio" value="Radio 1" checked>Tipo 1
+	    <input type="radio" name="radio" value="Radio 2">Tipo 2
+	    <input type="radio" name="radio" value="Radio 3">Tipo 3
+	    <br><br>
+	    
+	    <label>Fecha y Hora:</label>
+	    <input type="datetime-local" id="fechaHora">
+	    <br><br>
+	    
+	    <label>Color:</label>
+	    <input type="color" id="color">
+	    <br><br>
+
+	    <label>Rango:</label>
+	    <input type="range" id="rango" min="0" max="100">
+	    <br><br>
+
+		<button type="button" onclick="main()">Enviar</button>
+	</form>
+
+	<h2>Resultados</h2>
+
+	<table id="tabla">
+		<tr>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Checkbox</th>
+			<th>Radio</th>
+			<th>Fecha</th>
+			<th>Color</th>
+			<th>Rango</th>
+		</tr>
+	</table>
+
+	<!-- lo puse acá por que daba error si lo ponía en el head -->
+	<script src="./index.js"></script>
+</body>
+</html>

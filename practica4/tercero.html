@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tercero</title>
+</head>
+<body>
+
+    <!-- botón flotante para regresar al inicio -->
+    <a href="./index.html">
+        <div class="floating">
+            <strong>X</strong>
+        </div>
+    </a>
+
+    <h1>Formulario de Información Personal</h1>
+    
+    <form id="formularioInformacion">
+        <!-- primero el nombre -->
+        <label for="inputNombre">Nombre:</label>
+        <input type="text" id="inputNombre" required><br><br>
+
+        <!-- el email -->
+        <label for="inputEmail">Correo:</label>
+        <input type="email" id="inputEmail" required><br><br>
+
+        <!-- la edad -->
+        <label for="inputEdad">Edad:</label>
+        <input type="number" id="inputEdad" required><br><br>
+
+        <!-- genero -->
+        <label>Género:</label>
+        <input type="radio" id="radioMasculino" name="genero" value="Masculino">
+        <label for="radioMasculino">Masculino</label>
+        <input type="radio" id="radioFemenino" name="genero" value="Femenino">
+        <label for="radioFemenino">Femenino</label><br><br>
+
+        <!-- la fecja de nacimiento -->
+        <label for="inputFechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="inputFechaNacimiento" required><br><br>
+
+        <!-- y el color -->
+        <label for="inputColor">Color favorito:</label>
+        <input type="color" id="inputColor" required><br><br>
+
+        <!-- el botón de mandar -->
+        <button type="submit">Enviar</button>
+    </form>
+    <!-- y el párrafo para las respuestas -->
+    <p id="resultado"></p>
+    <script>
+        // seleccionamos el formulario
+        const formulario = document.getElementById("formularioInformacion");
+        // el parrafo de resultado
+        const resultado = document.getElementById("resultado");
+
+        // lo mismo que hace rato, cuando se suba el formulario que no se
+        // haga el refresh y que se ejecute el código siguiente
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // seleccionar todos los datos dados
+            const nombre = document.getElementById("inputNombre").value;
+            const correo = document.getElementById("inputEmail").value;
+            const edad = document.getElementById("inputEdad").value;
+            // aquí verificamos con un poco de selectores de css el valor del checkbox
+            const genero = document.querySelector('input[name="genero"]:checked').value;
+            // y todo lo demás
+            const fechaNacimiento = document.getElementById("inputFechaNacimiento").value;
+            const colorFavorito = document.getElementById("inputColor").value;
+            // finalmente renderizamos en el p el resultado, con sintaxis de ES6
+            resultado.textContent = `Nombre: ${nombre}, Correo: ${correo}, Edad: ${edad}, Género: ${genero}, Fecha de nacimiento: ${fechaNacimiento}, Color favorito: ${colorFavorito}`;
+            // console.log(`Nombre: ${nombre}, Correo: ${correo}, Edad: ${edad}, Género: ${genero}, Fecha de nacimiento: ${fechaNacimiento}, Color favorito: ${colorFavorito}`);
+        });
+    </script>
+</body>
+</html>

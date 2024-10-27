@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- contenido del html bpasico -->
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primero</title>
+</head>
+<body>
+    <!-- botón flotante para regresar al inicio -->
+    <a href="./index.html">
+        <div class="floating">
+            <strong>X</strong>
+        </div>
+    </a>
+
+    <!-- titulo -->
+    <h1>Calificaciones</h1>
+    <!-- formukario -->
+    <form id="formularioCalificacion">
+        <!-- label para el input -->
+        <label for="inputCalificacion">Ingrese la calificación:</label>
+        <!-- el input -->
+        <input type="number" id="inputCalificacion">
+        <!-- botón para subir el form -->
+        <button type="submit">Evaluar</button>
+    </form>
+    <!-- espacio para mostrar resultados -->
+    <p id="resultado"></p>
+
+    <script type="text/javascript">
+        // funcion para evaluar la calificacion ingresada
+        function evaluarCalificacion() {
+            // valor del input
+            let calificacion = document.getElementById('inputCalificacion').value;
+
+            // que calificacion esté en el rango correcto
+            if (calificacion < 0 || calificacion > 10) {
+                // mostramos el error de ser asi
+                document.getElementById('resultado').innerText = 'Error: La calificación debe estar entre 0 y 10';
+
+            // si la calificacion esta en rango
+            } else {
+                // evaluar la calificacion y asignar el resultado
+                if (calificacion >= 0 && calificacion < 6) {
+                    document.getElementById('resultado').innerText = 'NA';
+                } else if (calificacion >= 6 && calificacion < 7.5) {
+                    document.getElementById('resultado').innerText = 'S';
+                } else if (calificacion >= 7.5 && calificacion < 9) {
+                    document.getElementById('resultado').innerText = 'B';
+                } else if (calificacion >= 9 && calificacion < 10) {
+                    document.getElementById('resultado').innerText = 'MB';
+                } else {
+                    document.getElementById('resultado').innerText = 'LA';
+                }
+            }
+        }
+
+        // tuve que meter esto por que cada qye mandaba el boton con onclick
+        // aunque no fuera de submit, el formulario se mandaba no se mostraba
+        // el resultadp
+        document.getElementById('formularioCalificacion').addEventListener('submit', function(event) {
+            // basicamebte que no se haga refresh la página
+            event.preventDefault(); 
+            // y usar la función
+            evaluarCalificacion();
+        });
+    </script>
+
+</body>
+</html>
